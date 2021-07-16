@@ -1,10 +1,10 @@
 use std::fs;
 
-fn dfs(graph: &Vec<Vec<i32>>, color: &mut Vec<u8>, start: usize) {
-    color[start] = 1;
+fn dfs(graph: &Vec<Vec<i32>>, color: &mut Vec<u8>, start: usize, c: u8) {
+    color[start] = c;
     for &u in &graph[start] {
        if (color[u as usize] == 0) {
-           dfs(graph, color, u as usize);
+           dfs(graph, color, u as usize, c);
        }
     }
 }
@@ -25,7 +25,14 @@ pub fn main() {
         i += 2;
     }
     println!("before: {:?}", color);
-    dfs(&graph, &mut color, 0);
+    //  Раскраска разных компонент связности графа разным цветом
+    let mut start_color: u8 = 0;
+    for i in 0..n {
+        if (color[i] == 0) {
+            start_color += 1;
+            dfs(&graph, &mut color, i, start_color);
+        }
+    }
     println!("after: {:?}", color);
 
 }
