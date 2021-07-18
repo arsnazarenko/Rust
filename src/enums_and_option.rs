@@ -60,16 +60,16 @@ impl Message {
     fn call(&self) {
         let msg_code: u8 = match self {
 
-            Message::ChangeColor(a, b, c) => {
+            Message::ChangeColor(ref a, ref b, ref c) => {
                 10
             },
-            Message::Move {x, y} => {
+            Message::Move { ref x, ref y} => {
                 20
             },
             Message::Quite => {
                 30
             },
-            Message::Write(msg) => {
+            Message::Write(ref msg) => {
                 40
             },
         };
@@ -89,7 +89,6 @@ pub fn test() {
         y: 15
     };
     msg.call();
-
     //  OPTION
     //  Перечесление имеет два варианта:
     // *  Some<T> (параметризован) - если значение есть

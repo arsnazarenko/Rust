@@ -4,12 +4,15 @@ mod slices;
 mod structs;
 mod dfs;
 mod enums_and_option;
-
+mod bfs_min_distance;
+mod merge_sort;
 fn main() {
     // vars_and_arrays::test();
     // ownership::test();
     // slices::test();
     // structs::test();
     // dfs::main();
-    enums_and_option::test();
+    // bfs_min_distance::main();
+    merge_sort::main();
+
 }

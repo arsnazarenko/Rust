@@ -58,9 +58,10 @@ pub fn test() {
     }
 
     {
-        let array: [i32; 5] = [1, 2, 3, 4, 5];
-        let slice: &[i32] = &array[1..4];
-        assert_eq!(slice, &[2, 3, 4])
+        let mut array: [i32; 5] = [1, 2, 3, 4, 5];
+        let slice: &mut [i32] = &mut array[1..4];
+        slice[2] = 5;
+        assert_eq!(slice, &[2, 3, 5])
     }
 
 
