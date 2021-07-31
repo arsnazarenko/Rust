@@ -13,6 +13,7 @@ fn main() {
     // structs::test();
     // dfs::main();
     // bfs_min_distance::main();
-    merge_sort::main();
+    // merge_sort::main();
+    enums_and_option::test();
 
 }
