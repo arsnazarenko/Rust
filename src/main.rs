@@ -6,6 +6,8 @@ mod dfs;
 mod enums_and_option;
 mod bfs_min_distance;
 mod merge_sort;
+mod collections;
+mod strings;
 fn main() {
     // vars_and_arrays::test();
     // ownership::test();
@@ -14,6 +16,8 @@ fn main() {
     // dfs::main();
     // bfs_min_distance::main();
     // merge_sort::main();
-    enums_and_option::test();
+    // enums_and_option::test();
+    collections::main();
+    // strings::main();
 
 }
