@@ -8,6 +8,7 @@ mod bfs_min_distance;
 mod merge_sort;
 mod collections;
 mod strings;
+mod errors;
 fn main() {
     // vars_and_arrays::test();
     // ownership::test();
@@ -17,7 +18,8 @@ fn main() {
     // bfs_min_distance::main();
     // merge_sort::main();
     // enums_and_option::test();
-    collections::main();
+    // collections::main();
     // strings::main();
+    errors::main();
 
 }
