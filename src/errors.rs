@@ -25,7 +25,6 @@ pub fn main() {
     {
         // unwrap
         let file: File = File::open("hello.txt").unwrap();
-
         // Вызов unwrap аналогичен следующему коду:
         let f: File = match File::open("hello.txt") {
             Ok(file) => file,
@@ -67,7 +66,7 @@ pub fn main() {
         fn read_username_from_file_short() -> Result<String, io::Error> {
             // operator ? делает следующее:
             // если результат Ok(v), то возвращает v,
-            // если резльтат Err(e), делает return Err(e) - ранний выход из функции, возвращая Err(?)
+            // если резльтат Err(e), делает return Err(e) - ранний выход из функции, возвращая Err(e)
             let mut f = File::open("hello.txt")?;
             let mut s = String::new();
             // Если Ok(v) , то возвращается значение v - в данном случае количество прочитанных байт

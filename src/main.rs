@@ -9,6 +9,9 @@ mod merge_sort;
 mod collections;
 mod strings;
 mod errors;
+mod generics;
+mod traits;
+mod lifetimes;
 fn main() {
     // vars_and_arrays::test();
     // ownership::test();
@@ -20,6 +23,8 @@ fn main() {
     // enums_and_option::test();
     // collections::main();
     // strings::main();
-    errors::main();
-
+    // errors::main();
+    // generics::main();
+    // traits::main();
+    lifetimes::main();
 }
