@@ -25,6 +25,6 @@ fn main() {
     // strings::main();
     // errors::main();
     // generics::main();
-    // traits::main();
-    lifetimes::main();
+    traits::main();
+    // lifetimes::main();
 }

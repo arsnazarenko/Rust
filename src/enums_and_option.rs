@@ -257,7 +257,7 @@ pub fn test() {
         Some(ref mut str) => {println!("{}", str); str.clear(); str.len()},
         None => {println!("none..."); 0},
     };
-    //  CE - q - валидна, так как происходило заимствование
+    //  q - валидна, так как происходило заимствование
     println!("{:?}", n);
 
 

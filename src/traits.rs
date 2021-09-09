@@ -1,4 +1,5 @@
 use study::{self, NewsArticle, Tweet, Summary, WebSitePost, notify};
+use std::path::Display;
 
 pub fn main() {
     let tweet: Tweet = Tweet {
@@ -28,5 +29,40 @@ pub fn main() {
     notify(&tweet);
     notify(&news);
     notify(&post);
+    {
+        #[derive(Clone, Debug)]
+        //  попросили компилятору самому вывести реализацию clone()
+        //  здесь это работает, так как i32 - copy тип, b - объект, реализущий Clone trait
+        struct TestStruct {
+            a: i32,
+            b: String
+        }
+        //  trait Default
+        impl Default for TestStruct {
+            fn default() -> Self {
+                TestStruct {
+                    a: 0,
+                    b: "".to_string()
+                }
+            }
+        }
+
+        //  Copy
+
+        {   //  #[derive(Clone, Copy)]
+            //  derive всегда проверяет, чтобы тип T:
+            struct Wrapper<T> {
+                ptr: *const T,
+            }
+        }
+
+
+        let t = TestStruct::default();
+        let test_struct = t.clone();
+        println!("{:?}, {:?}", t, test_struct)
+
+    }
+
 
 }
+
