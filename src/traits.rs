@@ -50,12 +50,32 @@ pub fn main() {
         //  Copy
 
         {   //  #[derive(Clone, Copy)]
-            //  derive всегда проверяет, чтобы тип T:
             struct Wrapper<T> {
                 ptr: *const T,
             }
-        }
 
+            // Наша структура - это обертка над константным указателем, который всегда является Copy
+            // Но derive имеет одно фундоментальное ограничение:он проверяет, если структура с парметром T реализует трэйт,
+            // то параметр T тоже должен реализовыать трэйт
+            // [derive(Clone)] создает примерно такую конструкцию:
+            // impl<T: Clone> Clone for Wrapper<T> {
+            //     fn clone(&self) -> Self {
+            //         //...
+            //     }
+            // }
+            // Тогда Wrapper<Vec<i32>> не будет copy, так как Vec<i32> не copy,
+            // хотя константный указатель всегда должен быть Copy
+            // Решение - определить самому и делегировать поведение Clone к Copy
+            impl<T> Copy for Wrapper<T> {}
+
+            impl<T> Clone for Wrapper<T> {
+                fn clone(&self) -> Self {
+                    //  Делаем простое копирование, так как тип Copy
+                    *self
+                }
+            }
+
+        }
 
         let t = TestStruct::default();
         let test_struct = t.clone();
